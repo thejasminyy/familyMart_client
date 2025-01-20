@@ -440,6 +440,7 @@ main {
 .client-wrap .logo-list-wrap img {
     max-width: 100%;
     width: calc(154 / 1920 * 100vw);
+    margin: 0 17px;
 }
 .cases-wrap {
     margin-top: calc(120 / 1920 * 100vw);
@@ -456,7 +457,8 @@ main {
     /* position: relative; */
     background: url(../images/contact-us-bg.png) no-repeat;
     /* padding: calc(80 / 1920* 100vw) 0; */
-    padding: 80px 0;
+    padding-top: 100px;
+    padding-bottom: calc(80 / 1920 * 100vw);
 }
 .contact-us-main {
     /* position: absolute; */
@@ -632,6 +634,17 @@ main {
         font-size: calc(26 / 768* 100vw);
         text-align: center;
     }
+    .client-wrap .logo-list-wrap {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        width: 80%;
+    }
+    .client-wrap .logo-list-wrap img {
+        width: 60px;
+        box-shadow: 0px 3px 24.4px 2px #B7CFDF;
+        border-radius: 25px;
+    }
     .cases-wrap .advertising-content-wrap .content-wrap {
         font-size: calc(13 / 768* 100vw);
         text-align: center;
@@ -676,20 +689,20 @@ main {
         margin-top: 3px;
     }
     .contact-us-main {
-        width: 90%;
+        width: 80%;
     }
     .contact-us-main .form > p {
         font-size: calc(19 / 768* 100vw);
         color: #8A8A8A;
     }
     .contact-us-main .form section input {
-        height: 55px;
+        /* height: 55px; */
         border: 1px solid #fff;
         border-radius: 38px;
         background-color: #fff;
         color: #8A8A8A;
         font-size: calc(15 / 768* 100vw);
-        padding: 15px;
+        padding: calc(20 / 768* 100vw);
         box-shadow: 0px 2px 3px 4px rgba(183, 207, 223, 0.25);
     }
     .contact-us-main .form .btn-wrap button {
