@@ -393,7 +393,7 @@ main {
     position: absolute;
     left: 70%;
     z-index: 2;
-    width: 10%;
+    /* width: 10%; */
 }
 .advertising-swiper-ctrl img,
 .cases-swiper-ctrl img {
@@ -665,12 +665,12 @@ main {
         margin-bottom: 15px;
     }
     .contact-us-wrap > picture img {
-        max-width: 768px;
+        /* max-width: 768px; */
     }
     .contact-us-main .form {
         margin-left: 0;
         margin-top: 28px;
-        padding: 35px 30px;
+        padding: calc(35 / 768* 100vw) calc(30 / 768* 100vw);
         background: rgba(255, 255, 255, 0.85);
         border-radius: 31px;
     }
@@ -683,5 +683,35 @@ main {
     .contact-us-main .form > p {
         font-size: calc(19 / 768* 100vw);
         color: #8A8A8A;
+    }
+    .contact-us-main .form section input {
+        height: 55px;
+        border: 1px solid #fff;
+        border-radius: 38px;
+        background-color: #fff;
+        color: #8A8A8A;
+        font-size: calc(15 / 768* 100vw);
+        padding: 15px;
+        box-shadow: 0px 2px 3px 4px rgba(183, 207, 223, 0.25);
+    }
+    .contact-us-main .form .btn-wrap button {
+        font-size: calc(18 / 768* 100vw);
+    }
+    .contact-us-main .form section textarea {
+        color: #8A8A8A;
+        font-size: calc(15 / 768* 100vw);
+        border: none;
+        box-shadow: 0px 2px 3px 4px rgba(183, 207, 223, 0.25);
+        margin-top: calc(26 / 768* 100vw);
+    }
+    .contact-us-main .form section label:not(:first-child) {
+        margin-top: calc(47 / 768* 100vw);
+    }
+    .contact-us-main .form section label {
+        font-size: calc(15 / 768* 100vw);
+        color: #8A8A8A;
+    }
+    .contact-us-main .form section {
+        margin-top: calc(25 / 768* 100vw);
     }
 }
