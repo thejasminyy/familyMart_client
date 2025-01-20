@@ -101,6 +101,93 @@ header nav ul a:hover {
     border-top: 5px solid #4CCD2F;
     color: #3C3C3C;
 }
+header .burgerCircle {
+    width: 14.8vw;
+    position: absolute;
+    height: 96px;
+    top: 0;
+    right: 0;
+    z-index: 9999;
+    display: none;
+}
+header .burger {
+    width: 4.4vw;
+    height: 4.4vw;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    cursor: pointer;
+    transform: translate(-50%, -50%);
+}
+header .burger .line {
+    width: 100%;
+    height: 0.5vw;
+    background-color: #8A8A8A;
+    position: absolute;
+    border-radius: 18px;
+}
+header .burger .line:first-child {
+    top: 0;
+    left: 0;
+    -webkit-transform-origin: center;
+    -ms-transform-origin: center;
+    transform-origin: center;
+    -webkit-transition: top 0.35s, left 0.35s, width 0.35s, opacity 0.35s;
+    -o-transition: top 0.35s, left 0.35s, width 0.35s, opacity 0.35s;
+    transition: top 0.35s, left 0.35s, width 0.35s, opacity 0.35s;
+}
+header .burger .line:nth-child(2),
+header .burger .line:nth-child(3) {
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    -webkit-transform-origin: center;
+    -ms-transform-origin: center;
+    transform-origin: center;
+    -webkit-transition: -webkit-transform 0.35s;
+    transition: transform 0.35s;
+    -o-transition: transform 0.35s;
+    transition: transform 0.35s, -webkit-transform 0.35s;
+}
+header .burger .line:nth-child(4) {
+    bottom: 0;
+    left: 0;
+    -webkit-transform-origin: center;
+    -ms-transform-origin: center;
+    transform-origin: center;
+    -webkit-transition: bottom 0.35s, left 0.35s, width 0.35s, opacity 0.35s;
+    -o-transition: bottom 0.35s, left 0.35s, width 0.35s, opacity 0.35s;
+    transition: bottom 0.35s, left 0.35s, width 0.35s, opacity 0.35s;
+    opacity: 1;
+}
+header .burger.isclick .line:first-child,
+header .burger.isclick .line:nth-child(4) {
+    width: 0;
+    opacity: 0;
+    left: 50%;
+}
+header .burger.isclick .line:first-child {
+    top: 50%;
+}
+header .burger.isclick .line:nth-child(4) {
+    bottom: 50%;
+}
+header .burger.isclick .line:nth-child(2) {
+    opacity: 1;
+    -webkit-transform: rotateZ(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotateZ(-45deg);
+}
+header .burger.isclick .line:nth-child(3) {
+    opacity: 1;
+    -webkit-transform: rotateZ(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotateZ(45deg);
+}
+header .mb {
+    display: none;
+}
 main {
     position: relative;
     /* min-height: 100vh; */
@@ -452,6 +539,23 @@ main {
 }
 
 @media screen and (max-width: 768px) {
+    header {
+        height: 65px;
+        padding-bottom: 0;
+    }
+    header .burgerCircle {
+        display: block !important;
+        height: 65px;
+    }
+    header .logo-wrap {
+        padding-top:0;
+    }
+    header nav {
+        display: none;
+    }
+    header .logo-wrap img {
+        width: calc(278 / 768 * 100vw);
+    }
     .about-us-wrap .title p {
         font-size: calc(27 / 768 * 100vw);
     }
@@ -468,6 +572,10 @@ main {
         margin-left: 0;
         max-width: initial;
         margin-top: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
     .about-us-wrap .main .abou-us-content-wrap p {
         font-size: calc(24 / 768* 100vw);
@@ -479,6 +587,10 @@ main {
     .about-us-wrap .main .abou-us-content-wrap > div:not(:last-child) {
         margin-bottom: calc(20 / 768* 100vw);
     }
+    .about-us-wrap .main .abou-us-content-wrap > div {
+        width: 60%;
+        text-align: center;
+    }
     .advertising-resources-wrap {
         margin-top: calc(75 / 768* 100vw);
     }
@@ -487,5 +599,38 @@ main {
     }
     .contact-us-main {
         flex-direction: column;
+    }
+    .about-us-wrap .title span, 
+    .advertising-resources-wrap .title span, 
+    .client-wrap .title span, 
+    .cases-wrap .title span {
+        height: 3.5px;
+    }
+    .advertising-content-wrap {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 80% !important;
+        margin-top: 29px;
+        margin-left: 0;
+    }
+    .advertising-resources-main .advertising-content-wrap .content-title-wrap{
+        font-size: calc(23 / 768* 100vw);
+        margin-bottom: calc(39 / 768* 100vw);
+    }
+    .advertising-resources-main .advertising-content-wrap .content-wrap {
+        font-size: 13px;
+    }
+    .advertising-swiper-ctrl, 
+    .cases-swiper-ctrl {
+        width: 100%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding-top: 15px;
+    }
+    .advertising-resources-main, 
+    .swiper-wrapper {
+        margin-bottom: 15px;
     }
 }
