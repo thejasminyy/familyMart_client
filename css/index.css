@@ -75,6 +75,7 @@ header nav ul {
 }
 header nav {
     display: flex;
+    transition: width 0.3s ease;
 }
 header nav ul li {
     font-size: calc(22 / 1920 * 100vw);
@@ -634,6 +635,12 @@ main {
         font-size: calc(26 / 768* 100vw);
         text-align: center;
     }
+    .client-wrap {
+        margin-top: calc(96 / 768* 100vw);
+    }
+    .client-wrap .title {
+        margin-bottom: calc(32 / 768* 100vw);
+    }
     .client-wrap .logo-list-wrap {
         display: flex;
         justify-content: center;
@@ -724,5 +731,25 @@ main {
     }
     .contact-us-main .form section {
         margin-top: calc(25 / 768* 100vw);
+    }
+    .nav-wrap.fixed {
+        position: fixed;
+        display: block;
+        right: 0;
+        width: 100%;
+        height: 100vh;
+        background: #0078C8;
+        transition: 0.3s ease;
+    }
+    header nav ul {
+        padding-top: 65px;
+        flex-direction: column;
+    }
+    header nav ul li {
+        font-size: calc(36 / 768* 100vw); 
+        color: #fff;
+    }
+    header nav ul a {
+        margin-bottom: 20px;
     }
 }

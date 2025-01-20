@@ -304,7 +304,7 @@
             });
         });
 
-        document.querySelector(`.banner-content-wrap button`).addEventListener('click',event =>{
+        document.querySelector(`.banner-content-wrap button`).addEventListener('click',event => {
             changeNavItem('#contact')
         })
 
@@ -320,6 +320,22 @@
             navItems.forEach(item => item.classList.remove('current'));
             link.classList.add('current');
         }
+        const nav = document.querySelector('.nav-wrap');
+        const burger = document.querySelector('.burger');
+
+        // 点击事件
+        burger.addEventListener('click', () => {
+            if (nav) {
+                nav.classList.toggle('fixed'); // 切换 fixed 类
+            }
+        });
+
+        // 窗口大小变化事件
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768 && nav) {
+                nav.classList.remove('fixed'); // 移除 fixed 类
+            }
+        });
     </script>
 </body>
 </html>
