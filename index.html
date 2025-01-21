@@ -136,7 +136,12 @@
                 <span></span>
             </div>
             <div class="main">
-                <img src="./images/cases-bg.png" alt="">
+                <!-- <img src="./images/cases-bg.png" alt=""> -->
+                <picture>
+                    <source srcset="./images/cases-bg.png" media="(min-width: 769px)">
+                    <source srcset="./images/cases-m-bg.png">
+                    <img src="./images/cases-bg.png" alt="">
+                </picture>
                 <div class="logo-list-wrap">
                     <img src="./icon-images/1.png" alt="">
                     <img src="./icon-images/2.png" alt="">
@@ -323,17 +328,17 @@
         const nav = document.querySelector('.nav-wrap');
         const burger = document.querySelector('.burger');
 
-        // 点击事件
+        
         burger.addEventListener('click', () => {
             if (nav) {
-                nav.classList.toggle('fixed'); // 切换 fixed 类
+                nav.classList.toggle('fixed'); 
             }
         });
 
-        // 窗口大小变化事件
+        // 寬度變化監聽
         window.addEventListener('resize', () => {
             if (window.innerWidth > 768 && nav) {
-                nav.classList.remove('fixed'); // 移除 fixed 类
+                nav.classList.remove('fixed');
             }
         });
     </script>
