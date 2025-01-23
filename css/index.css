@@ -235,6 +235,7 @@ main {
 }
 .banner-wrap .banner-bg img {
     width: 100%;
+    background-size: 100% auto;
 }
 .about-us-wrap,
 .advertising-resources-wrap,
@@ -458,9 +459,10 @@ main {
     justify-content: center;
     /* position: relative; */
     background: url(../images/contact-us-bg.png) no-repeat;
+    background-size: 100% 100%;
     /* padding: calc(80 / 1920* 100vw) 0; */
     padding-top: 100px;
-    padding-bottom: calc(80 / 1920 * 100vw);
+    padding-bottom: calc(44 / 1920* 100vw);
 }
 .contact-us-main {
     /* position: absolute; */
