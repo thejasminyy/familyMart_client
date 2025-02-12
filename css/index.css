@@ -52,11 +52,11 @@ header {
     position: sticky;
     display: flex;
     justify-content: space-between;
-    height: 96px;
-    padding-left: calc(148 / 1920 * 100vw);
-    padding-right: calc(33 / 1920 * 100vw);
-    padding-bottom: calc(26 / 1920 * 100vw);
-    top: 0;
+    /* height: 96px; */
+    /* padding-left: calc(148 / 1920 * 100vw); */
+    /* padding-right: calc(33 / 1920 * 100vw); */
+    /* padding-bottom: calc(26 / 1920 * 100vw); */
+    /* top: 0; */
     z-index: 3;
     background-color: #fff;
 }
@@ -195,27 +195,29 @@ main {
     /* min-height: 100vh; */
 }
 .banner-wrap {
-    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 .banner-wrap .banner-content-wrap {
-    position: absolute;
-    color: #fff;
+    /* position: absolute; */
+    color: #0D0D0D;
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: 58px 0 146px 0;
 }
 .banner-wrap .banner-content-wrap h1 {
-    font-size: calc(70 / 1920 * 100vw);
-    margin-top: calc(62 / 1920 * 100vw);
+    font-size: calc(75 / 1920 * 100vw);
+    margin-top: calc(43 / 1920 * 100vw);
     font-weight: bold;
+    line-height: 1;
 }
 .banner-wrap .banner-content-wrap p {
-    font-size: calc(30 / 1920 * 100vw);
-    margin-top: calc(23 / 1920 * 100vw);
-    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-size: calc(34 / 1920 * 100vw);
+    margin-top: calc(56 / 1920 * 100vw);
+    /* text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); */
     font-weight: bold;
 }
 .banner-wrap .banner-content-wrap img {
@@ -432,14 +434,14 @@ main {
     width: 100%;
 }
 .client-wrap .main {
-    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-top: 83px;
 }
-.client-wrap .logo-list-wrap {
+/* .client-wrap .logo-list-wrap {
     position: absolute;
-}
+} */
 .client-wrap .logo-list-wrap img {
     max-width: 100%;
     width: calc(154 / 1920 * 100vw);
@@ -513,6 +515,7 @@ main {
 }
 .contact-us-main .form {
     margin-left: calc(227 / 1920 * 100vw);
+    width: calc(487 / 1920 * 100vw);
 }
 .contact-us-main .form section input:focus-visible,
 .contact-us-main .form section textarea:focus-visible {
@@ -537,9 +540,10 @@ main {
 .contact-us-main .form .btn-wrap button {
     font-size: calc(20 / 1920 * 100vw);
     border-radius: 37px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border: none;
     padding: 12px 35px;
-    background-color: #00A623;
+    background-color: #2183C9;
     color: #fff;
     cursor: pointer;
 }
