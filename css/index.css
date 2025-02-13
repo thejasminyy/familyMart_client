@@ -206,7 +206,8 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 58px 0 146px 0;
+    margin-top: calc(58 / 1920 * 100vw);
+    margin-bottom: calc(146 / 1920 * 100vw);
 }
 .banner-wrap .banner-content-wrap h1 {
     font-size: calc(75 / 1920 * 100vw);
@@ -437,7 +438,7 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 83px;
+    margin-top: calc(83 / 1920 * 100vw);
 }
 /* .client-wrap .logo-list-wrap {
     position: absolute;
@@ -549,10 +550,10 @@ main {
 }
 
 @media screen and (max-width: 768px) {
-    header {
+    /* header {
         height: 65px;
         padding-bottom: 0;
-    }
+    } */
     header .burgerCircle {
         display: block !important;
         height: 65px;
@@ -565,6 +566,10 @@ main {
     }
     header .logo-wrap img {
         width: calc(278 / 768 * 100vw);
+    }
+    .banner-wrap .banner-content-wrap {
+        /* margin-top: calc(58 / 768* 100vw); */
+        margin-bottom: calc(128 / 768* 100vw);
     }
     .about-us-wrap .title p,
     .advertising-resources-wrap .title p, 
@@ -645,9 +650,9 @@ main {
     .client-wrap {
         margin-top: calc(96 / 768* 100vw);
     }
-    .client-wrap .title {
+    /* .client-wrap .title {
         margin-bottom: calc(32 / 768* 100vw);
-    }
+    } */
     .client-wrap .logo-list-wrap {
         display: flex;
         justify-content: center;
@@ -655,9 +660,9 @@ main {
         width: 80%;
     }
     .client-wrap .logo-list-wrap img {
-        width: 60px;
-        box-shadow: 0px 3px 24.4px 2px #B7CFDF;
-        border-radius: 25px;
+        /* width: 60px; */
+        /* box-shadow: 0px 3px 24.4px 2px #B7CFDF; */
+        /* border-radius: 25px; */
     }
     .cases-wrap .advertising-content-wrap .content-wrap {
         font-size: calc(13 / 768* 100vw);
@@ -692,39 +697,44 @@ main {
         background: url(../images/contact-us-m-bg.png) no-repeat;
         padding: 80px 0 25px 0;
     }
+    .contact-us-main .title img {
+        width: calc(408 / 768* 100vw);
+    }
     .contact-us-main .form {
         margin-left: 0;
         margin-top: 28px;
-        padding: calc(35 / 768* 100vw) calc(30 / 768* 100vw);
+        width: 85%;
+        /* padding: calc(35 / 768* 100vw) calc(30 / 768* 100vw);
         background: rgba(255, 255, 255, 0.85);
-        border-radius: 31px;
+        border-radius: 31px; */
     }
     .contact-us-main .title p {
         margin-top: 3px;
+        font-size: calc(50 / 768* 100vw);
     }
     .contact-us-main {
-        width: 80%;
+        width: 100%;
+        align-items: center;
     }
     .contact-us-main .form > p {
-        font-size: calc(19 / 768* 100vw);
-        color: #8A8A8A;
+        font-size: 19px;
+        /* color: #8A8A8A; */
     }
     .contact-us-main .form section input {
-        /* height: 55px; */
-        border: 1px solid #fff;
+        /* border: 1px solid #fff;
         border-radius: 38px;
         background-color: #fff;
-        color: #8A8A8A;
-        font-size: calc(15 / 768* 100vw);
-        padding: calc(20 / 768* 100vw);
-        box-shadow: 0px 2px 3px 4px rgba(183, 207, 223, 0.25);
+        color: #8A8A8A; */
+        font-size: 16px;
+        /* padding: calc(20 / 768* 100vw); */
+        /* box-shadow: 0px 2px 3px 4px rgba(183, 207, 223, 0.25); */
     }
     .contact-us-main .form .btn-wrap button {
         font-size: calc(18 / 768* 100vw);
     }
     .contact-us-main .form section textarea {
         color: #8A8A8A;
-        font-size: calc(15 / 768* 100vw);
+        font-size: 16px;
         border: none;
         box-shadow: 0px 2px 3px 4px rgba(183, 207, 223, 0.25);
         margin-top: calc(26 / 768* 100vw);
@@ -733,8 +743,8 @@ main {
         margin-top: calc(47 / 768* 100vw);
     }
     .contact-us-main .form section label {
-        font-size: calc(15 / 768* 100vw);
-        color: #8A8A8A;
+        font-size:16px;
+        /* color: #8A8A8A; */
     }
     .contact-us-main .form section {
         margin-top: calc(25 / 768* 100vw);
