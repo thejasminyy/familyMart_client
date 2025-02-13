@@ -270,64 +270,64 @@
         });
 
         // 滾輪判斷
-        const sections = document.querySelectorAll('main section');
-        const navItems = document.querySelectorAll('header nav ul a');
+        // const sections = document.querySelectorAll('main section');
+        // const navItems = document.querySelectorAll('header nav ul a');
 
-        function updateCurrentSection() {
-            let currentSectionIndex = -1;
+        // function updateCurrentSection() {
+        //     let currentSectionIndex = -1;
 
-            sections.forEach((section, index) => {
-                const sectionTop = section.offsetTop;
-                const sectionBottom = sectionTop + section.offsetHeight;
-                // 位置判斷
-                if (window.scrollY >= sectionTop - 50 && window.scrollY < sectionBottom - 50) {
-                    currentSectionIndex = index;
-                }
-            });
+        //     sections.forEach((section, index) => {
+        //         const sectionTop = section.offsetTop;
+        //         const sectionBottom = sectionTop + section.offsetHeight;
+        //         // 位置判斷
+        //         if (window.scrollY >= sectionTop - 50 && window.scrollY < sectionBottom - 50) {
+        //             currentSectionIndex = index;
+        //         }
+        //     });
 
-            // 如果沒找到 section return
-            if (currentSectionIndex === -1) return;
+        //     // 如果沒找到 section return
+        //     if (currentSectionIndex === -1) return;
 
-            // 更新current
-            navItems.forEach((item, idx) => {
-                if (idx === currentSectionIndex) {
-                    item.classList.add('current');
-                } else {
-                    item.classList.remove('current');
-                }
-            });
-        }
+        //     // 更新current
+        //     navItems.forEach((item, idx) => {
+        //         if (idx === currentSectionIndex) {
+        //             item.classList.add('current');
+        //         } else {
+        //             item.classList.remove('current');
+        //         }
+        //     });
+        // }
 
-        window.addEventListener('scroll', updateCurrentSection);
+        // window.addEventListener('scroll', updateCurrentSection);
 
         //點航導
-        navItems.forEach(link => {
-            link.addEventListener('click', event => {
-                event.preventDefault();
-                const targetId = link.getAttribute('href');
-                changeNavItem(targetId)
+        // navItems.forEach(link => {
+        //     link.addEventListener('click', event => {
+        //         event.preventDefault();
+        //         const targetId = link.getAttribute('href');
+        //         changeNavItem(targetId)
 
-            });
-        });
+        //     });
+        // });
 
-        document.querySelector(`.banner-content-wrap button`).addEventListener('click',event => {
-            changeNavItem('#contact')
-        })
+        // document.querySelector(`.banner-content-wrap button`).addEventListener('click',event => {
+        //     changeNavItem('#contact')
+        // })
 
-        function changeNavItem(link) {
-            const targetElement = document.querySelector(link);
+        // function changeNavItem(link) {
+        //     const targetElement = document.querySelector(link);
 
-            targetElement.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start',
-            });
+        //     targetElement.scrollIntoView({
+        //         behavior: 'smooth',
+        //         block: 'start',
+        //     });
 
-            //  當前頁籤 current
-            navItems.forEach(item => item.classList.remove('current'));
-            link.classList.add('current');
-        }
-        const nav = document.querySelector('.nav-wrap');
-        const burger = document.querySelector('.burger');
+        //     //  當前頁籤 current
+        //     navItems.forEach(item => item.classList.remove('current'));
+        //     link.classList.add('current');
+        // }
+        // const nav = document.querySelector('.nav-wrap');
+        // const burger = document.querySelector('.burger');
 
         
         // burger.addEventListener('click', () => {
@@ -337,11 +337,11 @@
         // });
 
         // 寬度變化監聽
-        window.addEventListener('resize', () => {
-            if (window.innerWidth > 768 && nav) {
-                nav.classList.remove('fixed');
-            }
-        });
+        // window.addEventListener('resize', () => {
+        //     if (window.innerWidth > 768 && nav) {
+        //         nav.classList.remove('fixed');
+        //     }
+        // });
     </script>
 </body>
 </html>
