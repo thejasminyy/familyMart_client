@@ -493,7 +493,7 @@ main {
 .contact-us-main .title img {
     width: calc(408 / 1920 * 100vw);
 }
-.contact-us-main .form > p {
+.contact-us-main .form > h3 {
     font-size: calc(24 / 1920 * 100vw);
     color: #fff;
     font-weight: bold;
@@ -758,7 +758,7 @@ main {
         width: 100%;
         align-items: center;
     }
-    .contact-us-main .form > p {
+    .contact-us-main .form > h3 {
         font-size: 19px;
         /* color: #8A8A8A; */
     }
