@@ -467,6 +467,9 @@ main {
     padding-top: 100px;
     padding-bottom: calc(44 / 1920* 100vw);
 }
+.contact-us-wrap > img {
+    display: none;
+}
 .contact-us-main {
     /* position: absolute; */
     display: flex;
@@ -570,6 +573,15 @@ main {
     .banner-wrap .banner-content-wrap {
         /* margin-top: calc(58 / 768* 100vw); */
         margin-bottom: calc(128 / 768* 100vw);
+    }
+    .banner-wrap .banner-content-wrap img {
+        width: calc(408 / 768* 100vw);
+    }
+    .banner-wrap .banner-content-wrap h1 {
+        font-size: calc(70 / 768* 100vw); 
+    }
+    .banner-wrap .banner-content-wrap p {
+        font-size: calc(34 / 768* 100vw);
     }
     .about-us-wrap .title p,
     .advertising-resources-wrap .title p, 
@@ -694,8 +706,18 @@ main {
         /* max-width: 768px; */
     }
     .contact-us-wrap {
-        background: url(../images/contact-us-m-bg.png) no-repeat;
+        /* background: url(../images/contact-us-m-bg.png) no-repeat; */
+        background: none;
+        background-color: #00A623;
         padding: 80px 0 25px 0;
+        position: relative;
+    }
+    .contact-us-wrap > img {
+        display: flex;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 12%;
     }
     .contact-us-main .title img {
         width: calc(408 / 768* 100vw);
@@ -703,7 +725,7 @@ main {
     .contact-us-main .form {
         margin-left: 0;
         margin-top: 28px;
-        width: 85%;
+        width: 80%;
         /* padding: calc(35 / 768* 100vw) calc(30 / 768* 100vw);
         background: rgba(255, 255, 255, 0.85);
         border-radius: 31px; */
