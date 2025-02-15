@@ -443,9 +443,10 @@ main {
     justify-content: center;
     margin-top: calc(83 / 1920 * 100vw);
 }
-/* .client-wrap .logo-list-wrap {
-    position: absolute;
-} */
+.client-wrap .logo-list-wrap {
+    display: grid;
+    gap: 10px;
+}
 .client-wrap .logo-list-wrap img {
     max-width: 100%;
     width: calc(154 / 1920 * 100vw);
@@ -668,7 +669,7 @@ main {
         text-align: center;
     }
     .advertising-resources-main .advertising-content-wrap .content-wrap {
-        font-size: 13px;
+        font-size: 16px;
         /* font-size: calc(13 / 768* 100vw); */
         text-align: center;
     }

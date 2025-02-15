@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"/>
     <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>    
 </head>
 <body>
     <header>
@@ -157,6 +159,8 @@
                     <img src="./icon-images/3.png" alt="">
                     <img src="./icon-images/4.png" alt="">
                     <img src="./icon-images/5.png" alt="">
+                    <img src="./icon-images/5.png" alt="">
+                    <img src="./icon-images/5.png" alt="">
                 </div>
             </div>
         </section>
@@ -178,7 +182,7 @@
                             </div>
                         </div>
                       </div>
-                      <div class="swiper-slide">
+                      <!-- <div class="swiper-slide">
                         <div class="section-1 swiper-text">
                             <div class="img-wrap"><img src="./images/advertising-1.png" alt=""></div>
                             <div class="advertising-content-wrap">
@@ -195,7 +199,7 @@
                                 <p class="content-wrap">透過全家 RMN 數據與推播，大幅提升比比昂電商績效，創造品牌、消費者、零售店舖三贏！</p>
                             </div>
                         </div>
-                      </div>
+                      </div> -->
                     </div>
                 </div>  
                 <div class="cases-swiper-ctrl">
@@ -246,37 +250,187 @@
             </div>
         </section>
     </main>
-    <script type="text/javascript">
+    <script type="module">
+
+    document.addEventListener("DOMContentLoaded", () => {
+            // GSAP 滾動動畫
+        gsap.registerPlugin(ScrollTrigger);
+
+
+    const layouts = [
+        { logo_count: 1, layout: [1] },
+        { logo_count: 5, layout: [5] },
+        { logo_count: 7, layout: [4, 3] },
+        { logo_count: 10, layout: [5, 5] }
+    ];
+    // 獲取圖片列表並計算圖片數量
+    const logoListWrap = document.querySelector('.logo-list-wrap');
+    const images = logoListWrap.querySelectorAll('img');
+    const logoCount = images.length; // 動態計算圖片數量
+    console.log(logoCount)
+
+    // 根據 logo_count 查找對應的 layout
+    const layout = layouts.find(item => item.logo_count === logoCount)?.layout || [];
+
+    // 根據 layout 配置動態設置每行顯示的圖片數量
+    let gridTemplate = '';
+  layout.forEach(count => {
+    gridTemplate += `repeat(${count}, 1fr) `;
+  });
+//   logoListWrap.style.display = 'grid';
+  logoListWrap.style.gridTemplateColumns = gridTemplate.trim(); // 設置每行顯示的圖片數量
+
+  // 讓圖片數量跟 layout 配置匹配
+  images.forEach((img, index) => {
+    if (index >= logoCount) {
+      img.style.display = 'none';  // 隱藏多餘的圖片
+    } else {
+      img.style.display = 'block'; // 顯示圖片
+    }
+  });
+
+        const advertisingResourcesItems = document.querySelectorAll('.advertising-resources-main .swiper-slide');
+        const casesItems = document.querySelectorAll('.cases-main .swiper-slide');
+
+        
         const swiper = new Swiper('.advertising-resources-main', {
-          loop: true,
-          autoplay: {
+        loop: advertisingResourcesItems.length > 1, 
+        autoplay: {
             delay: 40000,
             disableOnInteraction: false,
-          },
-          pagination: {
+        },
+        pagination: {
             el: '.swiper-pagination-kv',
             clickable: true,
-          },
-          navigation: {
+        },
+        navigation: {
             nextEl: '.advertising-swiper-button-next',
             prevEl: '.advertising-swiper-button-prev',
-          },
+        },
         });
+
+        // 分頁判斷
+        if (advertisingResourcesItems.length <= 1) {
+        const pagination = document.querySelector('.swiper-pagination-kv');
+        const nextButton = document.querySelector('.advertising-swiper-button-next');
+        const prevButton = document.querySelector('.advertising-swiper-button-prev');
+        
+        if (pagination) pagination.style.display = 'none';
+        if (nextButton) nextButton.style.display = 'none';
+        if (prevButton) prevButton.style.display = 'none';
+        }
+
+        
         const swiper2 = new Swiper('.cases-main', {
-          loop: true,
-          autoplay: {
+        loop: casesItems.length > 1, 
+        autoplay: {
             delay: 40000,
             disableOnInteraction: false,
-          },
-          pagination: {
+        },
+        pagination: {
             el: '.swiper-pagination-cases',
             clickable: true,
-          },
-          navigation: {
+        },
+        navigation: {
             nextEl: '.cases-swiper-button-next',
             prevEl: '.cases-swiper-button-prev',
-          },
+        },
         });
+
+        // 分頁判斷
+        if (casesItems.length <= 1) {
+        const pagination2 = document.querySelector('.swiper-pagination-cases');
+        const nextButton2 = document.querySelector('.cases-swiper-button-next');
+        const prevButton2 = document.querySelector('.cases-swiper-button-prev');
+        
+        if (pagination2) pagination2.style.display = 'none';
+        if (nextButton2) nextButton2.style.display = 'none';
+        if (prevButton2) prevButton2.style.display = 'none';
+        }
+
+        function createAnimation(selector, fromProps, toProps) {
+            gsap.fromTo(selector, fromProps, {
+                ...toProps,
+                scrollTrigger: {
+                    trigger: selector,
+                    start: "top 80%",
+                    end: "top 50%",
+                    toggleActions: "play none play none",
+                },
+            });
+        }
+    
+        createAnimation(".banner-wrap .banner-content-wrap img", { opacity: 0, x: 100 }, { opacity: 1, x: 0, duration: 0.8 });
+        createAnimation(".banner-wrap .banner-content-wrap h1", { opacity: 0, x: 100 }, { opacity: 1, x: 0, duration: 0.8 });
+        createAnimation(".banner-wrap .banner-content-wrap h2", { opacity: 0, x: -100 }, { opacity: 1, x: 0, duration: 0.5 });
+        createAnimation(".about-us-wrap .title", { opacity: 0, x: 100 }, { opacity: 1, x: 0, duration: 0.5 });
+        createAnimation(".about-us-wrap .main iframe", { opacity: 0, x: 100 }, { opacity: 1, x: 0, duration: 0.5 });
+        createAnimation(".about-us-wrap .main .abou-us-content-wrap > div", { opacity: 0, x: -100 }, { opacity: 1, x: 0, duration: 0.5 });
+        createAnimation(".advertising-resources-wrap .title", { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 0.5 });
+        createAnimation(".advertising-resources-main .img-wrap img", { opacity: 0, x: 100 }, { opacity: 1, x: 0, duration: 0.8 });
+        createAnimation(".advertising-resources-main .advertising-content-wrap", { opacity: 0, x: 100 }, { opacity: 1, x: 0, duration: 0.8 });
+        createAnimation(".client-wrap .title", { opacity: 0, x: 100 }, { opacity: 1, x: 0, duration: 0.8 });
+        createAnimation(".cases-wrap .title", { opacity: 0, x: 100 }, { opacity: 1, x: 0, duration: 0.8 });
+        createAnimation(".cases-wrap .img-wrap", { opacity: 0, x: 100 }, { opacity: 1, x: 0, duration: 0.8 });
+        createAnimation(".advertising-content-wrap", { opacity: 0, x: 100 }, { opacity: 1, x: 0, duration: 0.8 });
+        createAnimation(".contact-us-main .title img", { opacity: 0, x: 100 }, { opacity: 1, x: 0, duration: 0.8 });
+        createAnimation(".contact-us-main .title p", { opacity: 0, x: 100 }, { opacity: 1, x: 0, duration: 0.5 });
+        createAnimation(".contact-us-main .form > h3", { opacity: 0, x: 100 }, { opacity: 1, x: 0, duration: 0.5 });
+        createAnimation(".contact-us-main .form .btn-wrap button", { opacity: 0, x: 100 }, { opacity: 1, x: 0, duration: 0.5 });
+        
+        
+        
+        gsap.fromTo(
+            ".logo-list-wrap img", // 目標是所有 img 元素
+            { opacity: 0, x: 100 }, // 動畫的初始狀態
+            {
+                opacity: 1,
+                x: 0,
+                duration: 0.8,
+                stagger: 0.2, // 每個元素顯示的延遲時間，這裡設定為 0.2 秒
+                scrollTrigger: {
+                    trigger: ".logo-list-wrap",
+                    start: "top 80%",
+                    end: "top 50%",
+                    toggleActions: "play none play none",
+                }
+            }
+        );
+        gsap.fromTo(
+            ".contact-us-main .form section label",
+            { opacity: 0, x: 100 }, // 動畫的初始狀態
+            {
+                opacity: 1,
+                x: 0,
+                duration: 0.8,
+                stagger: 0.2, // 每個元素顯示的延遲時間，這裡設定為 0.2 秒
+                scrollTrigger: {
+                    trigger: ".contact-us-main .form section label",
+                    start: "top 80%",
+                    end: "top 50%",
+                    toggleActions: "play none play none",
+                }
+            }
+        );
+        gsap.fromTo(
+            ".contact-us-main .form section textarea",
+            { opacity: 0, x: 100 }, // 動畫的初始狀態
+            {
+                opacity: 1,
+                x: 0,
+                duration: 0.8,
+                stagger: 0.8, // 每個元素顯示的延遲時間，這裡設定為 0.2 秒
+                scrollTrigger: {
+                    trigger: ".contact-us-main .form section textarea",
+                    start: "top 80%",
+                    end: "top 50%",
+                    toggleActions: "play none play none",
+                }
+            }
+        );
+    });
+    
+
 
         // 滾輪判斷
         // const sections = document.querySelectorAll('main section');
@@ -351,6 +505,7 @@
         //         nav.classList.remove('fixed');
         //     }
         // });
+    
     </script>
 </body>
 </html>
