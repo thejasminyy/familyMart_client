@@ -772,7 +772,7 @@ main {
         /* background: url(../images/contact-us-m-bg.png) no-repeat; */
         background: none;
         background-color: #00A623;
-        padding: 80px 0 40px 0;
+        padding: 80px 0 80px 0;
         position: relative;
     }
     .contact-us-wrap > img {
