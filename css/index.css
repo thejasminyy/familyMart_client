@@ -649,9 +649,9 @@ main {
     .about-us-wrap .main {
         flex-direction: column;
     }
-    .about-us-wrap .main iframe {
+    .about-us-wrap .main .iframe-wrap {
         width: 100%;
-        border-radius: 12px;
+        border-radius: 15px;
     }
     .about-us-wrap .main .abou-us-content-wrap {
         margin-left: 0;
@@ -772,7 +772,7 @@ main {
         /* background: url(../images/contact-us-m-bg.png) no-repeat; */
         background: none;
         background-color: #00A623;
-        padding: 80px 0 25px 0;
+        padding: 80px 0 40px 0;
         position: relative;
     }
     .contact-us-wrap > img {
