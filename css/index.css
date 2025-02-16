@@ -297,9 +297,50 @@ main {
     margin-left: 46px;
     max-width: 533px;
 }
-.about-us-wrap .main iframe {
+.about-us-wrap .main .iframe-wrap {
     width: calc(100% - 533px);
     aspect-ratio: 16 / 9;
+    position: relative;
+}
+.about-us-wrap .main #player {
+    width:100%;
+    height: 100%;
+    /* display: none; */
+    border-radius: 15px;
+}
+.about-us-wrap .main .iframe-wrap .thumbnail-overlay {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 1;
+    border-radius: 15px;
+}
+.about-us-wrap .main .iframe-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 15px;
+}
+.play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #ff0000;
+    border-radius: 12px;
+    color: white;
+    font-size: 24px;
+    padding: 10px 35px;
+    border: none;
+    cursor: pointer;
+    z-index: 1;
 }
 .about-us-wrap .main .abou-us-content-wrap h2 {
     font-size: calc(34 / 1920 * 100vw);
@@ -520,6 +561,7 @@ main {
     background-color: transparent;
     color: #fff;
     font-size: calc(20 / 1920 * 100vw);
+    border-radius: 0;
 }
 .contact-us-main .form {
     margin-left: calc(227 / 1920 * 100vw);

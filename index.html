@@ -9,6 +9,7 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>    
+    <script src="https://www.youtube.com/iframe_api"></script>
 </head>
 <body>
     <header>
@@ -69,7 +70,15 @@
                 <span></span>
             </div>
             <div class="main">
-                <iframe class="" src="https://www.youtube.com/embed/4UoCo9U1dkA" frameborder="0" allowfullscreen></iframe>
+                <div class="iframe-wrap">
+                    <!-- <iframe id="youtubeIframe" class="" src="https://www.youtube.com/embed/1hOfUcLaqxs?enablejsapi=1&rel=0" frameborder="0" allowfullscreen></iframe> -->
+                     <div id="player"></div>
+                    <!-- <iframe id="youtubeIframe" class="" src="https://www.youtube.com/embed/4UoCo9U1dkA" frameborder="0" allowfullscreen></iframe> -->
+                    <!-- L4jacaD4JJmptRxy -->
+                    <div class="thumbnail-overlay"></div>
+                    <button class="play-button">▶</button>
+                    <img src="./images/thumbnail.png" alt="">
+                </div>
                 <div class="abou-us-content-wrap">
                     <div>
                         <h2>高密度的店鋪分布</h2>
@@ -364,7 +373,11 @@
         createAnimation(".banner-wrap .banner-content-wrap h1", { opacity: 0, x: 100 }, { opacity: 1, x: 0, duration: 0.8 });
         createAnimation(".banner-wrap .banner-content-wrap h2", { opacity: 0, x: -100 }, { opacity: 1, x: 0, duration: 0.5 });
         createAnimation(".about-us-wrap .title", { opacity: 0, x: 100 }, { opacity: 1, x: 0, duration: 0.5 });
-        createAnimation(".about-us-wrap .main iframe", { opacity: 0, x: 100 }, { opacity: 1, x: 0, duration: 0.5 });
+        createAnimation(".about-us-wrap .main .iframe-wrap iframe", { opacity: 0, x: 100 }, { opacity: 1, x: 0, duration: 0.8 });
+        // createAnimation(".about-us-wrap .main .iframe-wrap .play-button", { opacity: 0, x: 100 }, { opacity: 1, x: 0, duration: 0.5 });
+        createAnimation(".about-us-wrap .main .iframe-wrap .thumbnail-overlay", { opacity: 0, x: 100 }, { opacity: 1, x: 0, duration: 0.8 });
+        createAnimation(".about-us-wrap .main .iframe-wrap img", { opacity: 0, x: 100 }, { opacity: 1, x: 0, duration: 0.8 });
+
         createAnimation(".about-us-wrap .main .abou-us-content-wrap > div", { opacity: 0, x: -100 }, { opacity: 1, x: 0, duration: 0.5 });
         createAnimation(".advertising-resources-wrap .title", { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 0.5 });
         createAnimation(".advertising-resources-main .img-wrap img", { opacity: 0, x: 100 }, { opacity: 1, x: 0, duration: 0.8 });
@@ -428,8 +441,35 @@
                 }
             }
         );
+
+        let player;
+
+        window.onYouTubeIframeAPIReady = function() {
+            player = new YT.Player('player', {
+                height: '360',
+                width: '640',
+                videoId: '4UoCo9U1dkA', // 影片 ID
+                playerVars: {
+                    'autoplay': 0,
+                    'rel': 0,      
+                    'playsinline': 1,
+                },
+            });
+        };
+
+        // 自訂義播放按鈕
+        document.querySelector(".play-button").addEventListener("click", function() {
+            if (player) {
+                player.playVideo(); // 播放影片
+            }
+
+            document.querySelector(".iframe-wrap img").style.display = "none";
+            document.querySelector(".play-button").style.display = "none";
+            document.querySelector(".thumbnail-overlay").style.display = "none";
+        });
     });
     
+
 
 
         // 滾輪判斷
