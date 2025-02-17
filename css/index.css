@@ -34,11 +34,16 @@ ol {
   margin: 0;
 }
 
+html {
+    overflow-x: hidden;
+}
+
 body {
     margin: 0;
     min-width: 320px;
     min-height: 100vh;
     width: 100%;
+    overflow-x: hidden;
     font-family: 'Source Han Sans TC', "Microsoft JhengHei", arial, sans-serif;
 }
 
@@ -239,6 +244,9 @@ main {
     color: #fff;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
+.banner-wrap .banner-bg {
+    width: 100%;
+}
 .banner-wrap .banner-bg img {
     width: 100%;
     background-size: 100% auto;
@@ -283,7 +291,7 @@ main {
     width: 100%;
     background-color: var(--spanColor);
     transform: skewX(45deg);
-    box-shadow: var(--shadow);
+    /* box-shadow: var(--shadow); */
     position: absolute;
     bottom: 0;
 }
@@ -402,6 +410,7 @@ main {
 .advertising-resources-main .img-wrap img,
 .cases-wrap .img-wrap img {
     max-width: 100%;
+    border-radius: 15px;
 }
 .advertising-resources-main .advertising-content-wrap,
 .cases-wrap .advertising-content-wrap {
