@@ -76,7 +76,7 @@
                     <!-- <iframe id="youtubeIframe" class="" src="https://www.youtube.com/embed/4UoCo9U1dkA" frameborder="0" allowfullscreen></iframe> -->
                     <!-- L4jacaD4JJmptRxy -->
                     <div class="thumbnail-overlay"></div>
-                    <button class="play-button">▶</button>
+                    <button class="play-button play-button-style">▶</button>
                     <img src="./images/thumbnail.png" alt="">
                 </div>
                 <div class="abou-us-content-wrap">
@@ -168,8 +168,8 @@
                     <img src="./icon-images/3.png" alt="">
                     <img src="./icon-images/4.png" alt="">
                     <img src="./icon-images/5.png" alt="">
-                    <img src="./icon-images/5.png" alt="">
-                    <img src="./icon-images/5.png" alt="">
+                    <!-- <img src="./icon-images/5.png" alt=""> -->
+                    <!-- <img src="./icon-images/5.png" alt=""> -->
                 </div>
             </div>
         </section>
@@ -184,7 +184,18 @@
                     <div class="swiper-wrapper">
                       <div class="swiper-slide">
                         <div class="section-1 swiper-text">
-                            <div class="img-wrap"><img src="./images/advertising-1.png" alt=""></div>
+                            <div class="img-wrap">
+                                <!-- <img src="./images/advertising-1.png" alt=""> -->
+                                <div class="iframe-wrap">
+                                    <!-- <iframe id="youtubeIframe" class="" src="https://www.youtube.com/embed/1hOfUcLaqxs?enablejsapi=1&rel=0" frameborder="0" allowfullscreen></iframe> -->
+                                     <div id="player_2"></div>
+                                    <!-- <iframe id="youtubeIframe" class="" src="https://www.youtube.com/embed/4UoCo9U1dkA" frameborder="0" allowfullscreen></iframe> -->
+                                    <!-- L4jacaD4JJmptRxy -->
+                                    <div class="thumbnail-overlay"></div>
+                                    <button class="play-button-2 play-button-style">▶</button>
+                                    <img src="./images/thumbnail_2.png" alt="">
+                                </div>
+                            </div>
                             <div class="advertising-content-wrap">
                                 <p class="content-title-wrap">獲2024 <span>數位奇點獎</span> 電子商務行銷<span>金獎!</span>跨境日貨平台「比比昂」</p>
                                 <p class="content-wrap">透過全家 RMN 數據與推播，大幅提升比比昂電商績效，創造品牌、消費者、零售店舖三贏！</p>
@@ -230,32 +241,32 @@
                     <img src="./images/banner-logo.png" alt="">
                     <p>聯絡我們</p>
                 </div>
-                <div class="form">
+                <form id="form" class="form">
                     <h3>如有合作洽談需求</h3>
                     <h3>請填寫以下資訊，我們將與您聯絡</h3>
-                    <section>
-                        <label for="">
+                    <section id="form-fields">
+                        <!-- <label for="">
                             姓名
-                            <input type="text" name="" id="">
+                            <input type="text" id="name" name="entry.916975403" required>
                         </label>
                         <label for="">
                             公司名稱
-                            <input type="text" name="" id="">
+                            <input type="text" id="company" name="entry.629885896" required>
                         </label>
                         <label for="">
                             電子郵件
-                            <input type="text" name="" id="">
+                            <input type="text" id="email" name="entry.53470063" required>
                         </label>
                         <label for="">
                             聯絡電話
-                            <input type="text" name="" id="">
+                            <input type="text" id="phone" name="entry.1068776338" required>
                         </label>
-                        <textarea id="story" name="story" rows="10" cols="33" placeholder="需要什麼協助 ?"></textarea>
+                        <textarea id="message" name="entry.1615407616" rows="10" cols="33" placeholder="需要什麼協助 ?" required></textarea> -->
                     </section>
                     <div class="btn-wrap">
                         <button>送出</button>
                     </div>
-                </div>
+                </form>
             </div>
         </section>
     </main>
@@ -443,12 +454,23 @@
         );
 
         let player;
+        let player_2;
 
         window.onYouTubeIframeAPIReady = function() {
             player = new YT.Player('player', {
                 height: '360',
                 width: '640',
                 videoId: '4UoCo9U1dkA', // 影片 ID
+                playerVars: {
+                    'autoplay': 0,
+                    'rel': 0,      
+                    'playsinline': 1,
+                },
+            });
+            player_2 = new YT.Player('player_2', {
+                height: '360',
+                width: '640',
+                videoId: 'GfUBvMwfsyU', // 影片 ID
                 playerVars: {
                     'autoplay': 0,
                     'rel': 0,      
@@ -467,10 +489,104 @@
             document.querySelector(".play-button").style.display = "none";
             document.querySelector(".thumbnail-overlay").style.display = "none";
         });
+
+        document.querySelector(".play-button-2").addEventListener("click", function() {
+            if (player_2) {
+                player_2.playVideo(); // 播放影片
+            }
+
+            document.querySelector(".cases-wrap .main .iframe-wrap img").style.display = "none";
+            document.querySelector(".play-button-2").style.display = "none";
+            document.querySelector(".cases-wrap .main .iframe-wrap .thumbnail-overlay").style.display = "none";
+        });
     });
     
+    fetch('data.json')
+    .then(response => response.json())
+    .then(forms => {
+        const formFields = document.getElementById('form-fields');
 
+        // 動態生成表單欄位
+        forms.data.forEach(field => {
+            const label = document.createElement('label');
+            label.innerHTML = `${field.label}`;
 
+            if (field.type === 'textarea') {
+                const textarea = document.createElement('textarea');
+                textarea.name = field.name;
+                textarea.id = field.id;
+                textarea.rows = 5;
+                textarea.cols = 33;
+                textarea.placeholder = field.label;
+                textarea.required = true;
+                label.appendChild(textarea);
+            } else {
+                const input = document.createElement('input');
+                input.type = field.type;
+                input.name = field.name;
+                input.id = field.id;
+                input.required = true;
+                label.appendChild(input);
+            }
+
+            formFields.appendChild(label);
+        });
+
+        // 綁定提交事件
+        document.getElementById('form').addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const formData = new FormData();
+            forms.data.forEach(field => {
+                formData.append(field.name, document.getElementById(field.id).value);
+            });
+
+            // 發送資料到 Google 表單
+            fetch(forms.src, {
+                method: 'POST',
+                body: formData,
+                mode: 'no-cors'
+            })
+            .then(() => {
+                alert('資料已成功送出！');
+                document.getElementById('form').reset();
+            })
+            .catch(() => {
+                alert('資料送出失敗，請稍後再試。');
+            });
+        });
+    })
+    .catch(error => console.error('無法加載 data.json:', error));
+
+    // document.getElementById('form').addEventListener('submit', (e) => {
+    //     e.preventDefault();
+
+    //     // 建立 FormData 物件並加入表單內容
+    //     const data = new FormData();
+    //     data.append('entry.1509558821', document.getElementById('name').value);
+    //     data.append('entry.1068776338', document.getElementById('phone').value);
+    //     data.append('entry.53470063', document.getElementById('email').value);
+    //     data.append('entry.629885896', document.getElementById('company').value);
+    //     data.append('entry.1615407616', document.getElementById('message').value);
+
+    //     // 發送資料到 Google 表單
+    //     fetch(
+    //     'https://docs.google.com/forms/u/0/d/e/1FAIpQLScsyzC3BxcOPyAdfOkwWTDmq1q8OBVvtsB3cgKgQZli2QgzuQ/formResponse',
+    //     {
+    //         method: 'POST',
+    //         body: data,
+    //         mode: 'no-cors', // 避免 CORS 問題
+    //     }
+    //     )
+    //     .then(() => {
+    //         alert('資料已成功送出！');
+    //         // 清空表單
+    //         document.getElementById('form').reset();
+    //     })
+    //     .catch(() => {
+    //         alert('資料送出失敗，請稍後再試。');
+    //     });
+    // });
 
         // 滾輪判斷
         // const sections = document.querySelectorAll('main section');
