@@ -555,9 +555,6 @@
 
         // 動態產生表單
         forms.data.forEach(field => {
-            const label = document.createElement('label');
-            label.innerHTML = `${field.label}`;
-
             if (field.type === 'textarea') {
                 const textarea = document.createElement('textarea');
                 textarea.name = field.name;
@@ -566,17 +563,20 @@
                 textarea.cols = 33;
                 textarea.placeholder = field.label;
                 textarea.required = true;
-                label.appendChild(textarea);
+                formFields.appendChild(textarea);
             } else {
+                const label = document.createElement('label');
+                label.innerHTML = `${field.label}`;
+
                 const input = document.createElement('input');
                 input.type = field.type;
                 input.name = field.name;
                 input.id = field.id;
                 input.required = true;
+                
                 label.appendChild(input);
+                formFields.appendChild(label);
             }
-
-            formFields.appendChild(label);
         });
 
         // 監聽發送表單事件
