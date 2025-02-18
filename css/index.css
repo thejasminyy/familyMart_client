@@ -657,10 +657,12 @@ main {
     }
     .banner-wrap .banner-content-wrap h1 {
         font-size: calc(70 / 768* 100vw); 
+        margin-top: calc(43 / 768* 100vw);
     }
     .banner-wrap .banner-content-wrap h2 {
-        font-size: calc(34 / 768* 100vw);
+        font-size: 20px;
         text-align: center;
+        margin-top: calc(43 / 768* 100vw);
     }
     .banner-wrap .banner-content-wrap h2 span {
         display: none;
@@ -673,6 +675,15 @@ main {
     .client-wrap .title p, .cases-wrap .title p {
         font-size: 27px;
         /* font-size: calc(27 / 768 * 100vw); */
+    }
+    .about-us-wrap .title {
+        margin-bottom: 16px;
+    }
+    .advertising-resources-wrap .title {
+        margin-bottom: 24px;  
+    }
+    .cases-wrap .title {
+        margin-bottom: 30px;
     }
     .about-us-wrap .title img {
         /* width: calc(196 / 768 * 100vw); */
@@ -688,7 +699,7 @@ main {
     .about-us-wrap .main .abou-us-content-wrap {
         margin-left: 0;
         max-width: initial;
-        margin-top: 20px;
+        margin-top: 21px;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -732,7 +743,7 @@ main {
         align-items: center;
         justify-content: center;
         width: 80% !important;
-        margin-top: calc(29 / 768* 100vw);
+        margin-top: 24px;
         margin-left: 0;
     }
     .advertising-resources-main .advertising-content-wrap .content-title-wrap{
@@ -752,6 +763,9 @@ main {
         /* font-size: calc(26 / 768* 100vw); */
         text-align: center;
         margin-bottom: 47px;
+    }
+    .client-wrap .main {
+        margin-top: 32px;
     }
     .client-wrap {
         margin-top: calc(96 / 768* 100vw);
@@ -789,10 +803,11 @@ main {
     .cases-wrap .advertising-content-wrap {
         width: 100%;
         margin-left: 0;
-        margin-top: calc(31 / 768* 100vw);
+        margin-top: 25px;
         display: flex;
         flex-direction: column;
         align-items: center;
+        min-width: auto;
     }
     .cases-wrap .cases-main {
         margin-bottom: 15px;
@@ -804,7 +819,7 @@ main {
         /* background: url(../images/contact-us-m-bg.png) no-repeat; */
         background: none;
         background-color: #00A623;
-        padding: 80px 0 80px 0;
+        padding: 55px 0 76px 0;
         position: relative;
     }
     .contact-us-wrap > img {
@@ -819,14 +834,14 @@ main {
     }
     .contact-us-main .form {
         margin-left: 0;
-        margin-top: 28px;
+        margin-top: 53px;
         width: 80%;
         /* padding: calc(35 / 768* 100vw) calc(30 / 768* 100vw);
         background: rgba(255, 255, 255, 0.85);
         border-radius: 31px; */
     }
     .contact-us-main .title p {
-        margin-top: 3px;
+        margin-top: 7px;
         font-size: calc(50 / 768* 100vw);
     }
     .contact-us-main {
@@ -835,9 +850,6 @@ main {
     }
     .cases-wrap .img-wrap {
         width: 100%;
-    }
-    .cases-wrap .advertising-content-wrap {
-        min-width: auto;
     }
     .contact-us-main .form > h3 {
         font-size: 19px;
