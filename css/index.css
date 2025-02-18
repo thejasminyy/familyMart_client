@@ -515,7 +515,7 @@ main {
     margin-top: calc(83 / 1920 * 100vw);
 }
 .client-wrap .logo-list-wrap {
-    display: grid;
+    display: flex;
     gap: 10px;
 }
 .client-wrap .logo-list-wrap img {
@@ -587,11 +587,12 @@ main {
 }
 .contact-us-main .form section input {
     border: none;
-    border-bottom: 1px solid #fff;
+    border-bottom: 4.5px solid #fff;
     background-color: transparent;
     color: #fff;
     font-size: calc(20 / 1920 * 100vw);
     border-radius: 0;
+    padding-top: 15px;
 }
 .contact-us-main .form {
     margin-left: calc(227 / 1920 * 100vw);
