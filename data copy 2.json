@@ -1,0 +1,10 @@
+{
+    "src": "https://docs.google.com/forms/u/0/d/e/1FAIpQLScHcQOsITe1QJAMhqc00VKKRpBEvLdyq3wESje-vnRlRJnTiw/formResponse",
+    "data": [
+        { "label": "姓名", "type": "text", "name": "entry.1620287417", "id": "name" },
+        { "label": "公司名稱", "type": "text", "name": "entry.1893194595", "id": "company" },
+        { "label": "電子郵件", "type": "email", "name": "entry.12182375", "id": "email" },
+        { "label": "聯絡電話", "type": "tel", "name": "entry.1313919089", "id": "phone" },
+        { "label": "需要什麼協助？", "type": "textarea", "name": "entry.1990250521", "id": "message" }
+    ]
+}
