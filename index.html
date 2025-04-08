@@ -16,7 +16,7 @@
     <meta name="twitter:description" content="FamilyADS運用零售數據，實現全方位數位行銷，整合線上與線下場域，讓品牌達成最佳行銷成效。" />
     <meta name="twitter:image" content="https://thejasminyy.github.io/familyMart_client/images/og-image.png" />
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"/>
     <link rel="stylesheet" href="css/index.css">
 </head>
@@ -363,10 +363,13 @@
                 },
             });
         }
-    
+        setTimeout(() => {
+            createAnimation(".banner-wrap .banner-content-wrap h1", { opacity: 0, x: 100 }, { opacity: 1, x: 0, duration: 0.8, ease: "power2.out" });
+            createAnimation(".banner-wrap .banner-content-wrap h2", { opacity: 0, x: 100 }, { opacity: 1, x: 0, duration: 0.8, ease: "power2.out" });
+        }, 300); // 
         // createAnimation(".banner-wrap .banner-content-wrap img", { opacity: 0, x: 100 }, { opacity: 1, x: 0, duration: 0.8 });
-        createAnimation(".banner-wrap .banner-content-wrap h1", { opacity: 0, x: 100 }, { opacity: 1, x: 0, duration: 0.8, ease: "power2.out" });
-        createAnimation(".banner-wrap .banner-content-wrap h2", { opacity: 0, x: 100 }, { opacity: 1, x: 0, duration: 0.8, ease: "power2.out" });
+        // createAnimation(".banner-wrap .banner-content-wrap h1", { opacity: 0, x: 100 }, { opacity: 1, x: 0, duration: 0.8, ease: "power2.out" });
+        // createAnimation(".banner-wrap .banner-content-wrap h2", { opacity: 0, x: 100 }, { opacity: 1, x: 0, duration: 0.8, ease: "power2.out" });
         // createAnimation(".about-us-wrap .title", { opacity: 0, x: 100 }, { opacity: 1, x: 0, duration: 0.5 });
         // createAnimation(".about-us-wrap .main .iframe-wrap iframe", { opacity: 0, x: 100 }, { opacity: 1, x: 0, duration: 0.8 });
         // createAnimation(".about-us-wrap .main .iframe-wrap .play-button", { opacity: 0, x: 100 }, { opacity: 1, x: 0, duration: 0.5 });
@@ -410,7 +413,10 @@
                 },
             });
         }
-        initializePlayers();
+        setTimeout(() => {
+            initializePlayers();
+        }, 300); // 
+
 
         // 自訂義播放按鈕
         document.querySelector(".play-button").addEventListener("click", function() {
