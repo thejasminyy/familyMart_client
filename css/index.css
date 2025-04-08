@@ -37,7 +37,7 @@ ol {
 }
 
 html {
-    /* overflow-x: hidden; */
+    overflow-x: hidden;
 }
 
 body {
@@ -199,6 +199,7 @@ header .mb {
 }
 main {
     position: relative;
+    width: 100%;
     /* min-height: 100vh; */
 }
 .banner-wrap {
