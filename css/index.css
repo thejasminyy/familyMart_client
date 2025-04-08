@@ -37,7 +37,7 @@ ol {
 }
 
 html {
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
 }
 
 body {
@@ -45,7 +45,7 @@ body {
     min-width: 320px;
     min-height: 100vh;
     width: 100%;
-    /* overflow-x: hidden; */
+    overflow: scroll;
     font-family: 'Source Han Sans TC', "Microsoft JhengHei", arial, sans-serif;
 }
 
