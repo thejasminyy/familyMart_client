@@ -532,6 +532,9 @@ main {
     color: #fff;
     font-weight: bold;
 }
+.contact-us-main .form > h3 a {
+    color: #fff;
+}
 .contact-us-main .form section {
     display: flex;
     flex-direction: column;
@@ -693,7 +696,11 @@ main section *.blue {
         text-align: center;
     }
     .advertising-resources-wrap {
-        margin-top: calc(75 / 768* 100vw);
+        margin-top: calc(128 / 768* 100vw);
+    }
+    #offline-advertising.advertising-resources-wrap,
+    .cases-wrap {
+        margin-top: calc(149 / 768* 100vw);
     }
     .swiper-slide > div {
         flex-direction: column;

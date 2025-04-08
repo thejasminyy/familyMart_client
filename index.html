@@ -278,27 +278,9 @@
                     <h2>聯絡我們</h2>
                 </div>
                 <form id="form" class="form">
-                    <h3>合作洽談需求歡迎來信 cpm@family.com.tw</h3>
+                    <h3>合作洽談需求歡迎來信 <a href="mailto:cpm@family.com.tw">cpm@family.com.tw</a></h3>
                     <h3>或填寫以下欄位，我們將與您聯絡</h3>
-                    <section id="form-fields">
-                        <!-- <label for="">
-                            姓名
-                            <input type="text" id="name" name="entry.916975403" required>
-                        </label>
-                        <label for="">
-                            公司名稱
-                            <input type="text" id="company" name="entry.629885896" required>
-                        </label>
-                        <label for="">
-                            電子郵件
-                            <input type="text" id="email" name="entry.53470063" required>
-                        </label>
-                        <label for="">
-                            聯絡電話
-                            <input type="text" id="phone" name="entry.1068776338" required>
-                        </label>
-                        <textarea id="message" name="entry.1615407616" rows="10" cols="33" placeholder="需要什麼協助 ?" required></textarea> -->
-                    </section>
+                    <section id="form-fields"></section>
                     <div class="btn-wrap">
                         <button>送出</button>
                     </div>
@@ -311,88 +293,6 @@
     document.addEventListener("DOMContentLoaded", () => {
             // GSAP 滾動動畫
         gsap.registerPlugin(ScrollTrigger);
-
-        //監聽滾輪
-        // const sections = document.querySelectorAll("main > section");
-        // let currentIndex = 0;
-        // let isScrolling = false; 
-
-        // function scrollToSection(index) {
-        //     if (index < 0 || index >= sections.length) return;
-        //     isScrolling = true;
-        //     sections[index].scrollIntoView({ behavior: "smooth" });
-
-        //     setTimeout(() => {
-        //     isScrolling = false;
-        //     }, 800);
-        // }
-
-        // window.addEventListener("wheel", function (event) {
-        //     if (isScrolling) return;
-
-        //     if (event.deltaY > 0) {
-        //     // 向下滾動
-        //     currentIndex = Math.min(currentIndex + 1, sections.length - 1);
-        //     } else if (event.deltaY < 0) {
-        //     // 向上滾動
-        //     currentIndex = Math.max(currentIndex - 1, 0);
-        //     }
-
-        //     scrollToSection(currentIndex);
-        // });
-
-        // 監聽滾動條手動拖動，更新 currentIndex
-        // window.addEventListener("scroll", function () {
-        //     if (isScrolling) return;
-
-        //     let scrollPosition = window.scrollY;
-        //     let closestIndex = 0;
-        //     let minDiff = Math.abs(sections[0].offsetTop - scrollPosition);
-
-        //     sections.forEach((section, index) => {
-        //     let diff = Math.abs(section.offsetTop - scrollPosition);
-        //     if (diff < minDiff) {
-        //         minDiff = diff;
-        //         closestIndex = index;
-        //     }
-        //     });
-
-        //     currentIndex = closestIndex; // 更新
-        // });
-
-
-//     const layouts = [
-//         { logo_count: 1, layout: [1] },
-//         { logo_count: 5, layout: [5] },
-//         { logo_count: 7, layout: [4, 3] },
-//         { logo_count: 10, layout: [5, 5] }
-//     ];
-//     // 獲取圖片列表並計算圖片數量
-//     const logoListWrap = document.querySelector('.logo-list-wrap');
-//     const images = logoListWrap.querySelectorAll('img');
-//     const logoCount = images.length; // 動態計算圖片數量
-//     console.log(logoCount)
-
-//     // 根據 logo_count 查找對應的 layout
-//     const layout = layouts.find(item => item.logo_count === logoCount)?.layout || [];
-
-//     // 根據 layout 配置動態設置每行顯示的圖片數量
-//     let gridTemplate = '';
-//   layout.forEach(count => {
-//     gridTemplate += `repeat(${count}, 1fr) `;
-//   });
-// //   logoListWrap.style.display = 'grid';
-//   logoListWrap.style.gridTemplateColumns = gridTemplate.trim(); // 設置每行顯示的圖片數量
-
-//   // 讓圖片數量跟 layout 配置匹配
-//   images.forEach((img, index) => {
-//     if (index >= logoCount) {
-//       img.style.display = 'none';  // 隱藏多餘的圖片
-//     } else {
-//       img.style.display = 'block'; // 顯示圖片
-//     }
-//   });
-        
         //輪播
         function initSwiper({ containerSelector, slideSelector, paginationSelector, nextBtnSelector, prevBtnSelector }) {
             const slideItems = document.querySelectorAll(slideSelector);
@@ -482,60 +382,9 @@
         // createAnimation(".cases-wrap .title", { opacity: 0, x: 100 }, { opacity: 1, x: 0, duration: 0.8 });
         // createAnimation(".cases-wrap .img-wrap", { opacity: 0, x: 100 }, { opacity: 1, x: 0, duration: 0.8 });
         createAnimation("#cases .advertising-content-wrap", { opacity: 0, x: 100 }, { opacity: 1, x: 0, duration: 0.8, ease: "power2.out" });
-        createAnimation(".contact-us-main .title img", { opacity: 0, x: 100 }, { opacity: 1, x: 0, duration: 0.8, ease: "power2.out" });
+        // createAnimation(".contact-us-main .title img", { opacity: 0, x: 100 }, { opacity: 1, x: 0, duration: 0.8, ease: "power2.out" });
         createAnimation(".contact-us-main .title p", { opacity: 0, x: 100 }, { opacity: 1, x: 0, duration: 0.8, ease: "power2.out" });
         createAnimation(".contact-us-main .form > h3", { opacity: 0, x: 100 }, { opacity: 1, x: 0, duration: 0.8, ease: "power2.out" });
-        
-        
-        
-        // gsap.fromTo(
-        //     ".logo-list-wrap img", // 目標是所有 img 元素
-        //     { opacity: 0, x: 100 }, // 動畫的初始狀態
-        //     {
-        //         opacity: 1,
-        //         x: 0,
-        //         duration: 0.8,
-        //         stagger: 0.2, // 每個元素顯示的延遲時間，這裡設定為 0.2 秒
-        //         scrollTrigger: {
-        //             trigger: ".logo-list-wrap",
-        //             start: "top 80%",
-        //             end: "top 50%",
-        //             toggleActions: "play none play none",
-        //         }
-        //     }
-        // );
-        // gsap.fromTo(
-        //     ".contact-us-main .form section label",
-        //     { opacity: 0, x: 100 }, // 動畫的初始狀態
-        //     {
-        //         opacity: 1,
-        //         x: 0,
-        //         duration: 0.8,
-        //         stagger: 0.2, // 每個元素顯示的延遲時間，這裡設定為 0.2 秒
-        //         scrollTrigger: {
-        //             trigger: ".contact-us-main .form section label",
-        //             start: "top 80%",
-        //             end: "top 50%",
-        //             toggleActions: "play none play none",
-        //         }
-        //     }
-        // );
-        // gsap.fromTo(
-        //     ".contact-us-main .form section textarea",
-        //     { opacity: 0, x: 100 }, // 動畫的初始狀態
-        //     {
-        //         opacity: 1,
-        //         x: 0,
-        //         duration: 0.8,
-        //         stagger: 0.8, // 每個元素顯示的延遲時間，這裡設定為 0.2 秒
-        //         scrollTrigger: {
-        //             trigger: ".contact-us-main .form section textarea",
-        //             start: "top 80%",
-        //             end: "top 50%",
-        //             toggleActions: "play none play none",
-        //         }
-        //     }
-        // );
 
         let player;
         let player_2;
@@ -641,110 +490,6 @@
         });
     })
     .catch(error => console.error('無法加載 data.json:', error));
-
-    // document.getElementById('form').addEventListener('submit', (e) => {
-    //     e.preventDefault();
-
-    //     // 建立 FormData 物件並加入表單內容
-    //     const data = new FormData();
-    //     data.append('entry.1509558821', document.getElementById('name').value);
-    //     data.append('entry.1068776338', document.getElementById('phone').value);
-    //     data.append('entry.53470063', document.getElementById('email').value);
-    //     data.append('entry.629885896', document.getElementById('company').value);
-    //     data.append('entry.1615407616', document.getElementById('message').value);
-
-    //     // 發送資料到 Google 表單
-    //     fetch(
-    //     'https://docs.google.com/forms/u/0/d/e/1FAIpQLScsyzC3BxcOPyAdfOkwWTDmq1q8OBVvtsB3cgKgQZli2QgzuQ/formResponse',
-    //     {
-    //         method: 'POST',
-    //         body: data,
-    //         mode: 'no-cors', // 避免 CORS 問題
-    //     }
-    //     )
-    //     .then(() => {
-    //         alert('資料已成功送出！');
-    //         // 清空表單
-    //         document.getElementById('form').reset();
-    //     })
-    //     .catch(() => {
-    //         alert('資料送出失敗，請稍後再試。');
-    //     });
-    // });
-
-        // 滾輪判斷
-        // const sections = document.querySelectorAll('main section');
-        // const navItems = document.querySelectorAll('header nav ul a');
-
-        // function updateCurrentSection() {
-        //     let currentSectionIndex = -1;
-
-        //     sections.forEach((section, index) => {
-        //         const sectionTop = section.offsetTop;
-        //         const sectionBottom = sectionTop + section.offsetHeight;
-        //         // 位置判斷
-        //         if (window.scrollY >= sectionTop - 50 && window.scrollY < sectionBottom - 50) {
-        //             currentSectionIndex = index;
-        //         }
-        //     });
-
-        //     // 如果沒找到 section return
-        //     if (currentSectionIndex === -1) return;
-
-        //     // 更新current
-        //     navItems.forEach((item, idx) => {
-        //         if (idx === currentSectionIndex) {
-        //             item.classList.add('current');
-        //         } else {
-        //             item.classList.remove('current');
-        //         }
-        //     });
-        // }
-
-        // window.addEventListener('scroll', updateCurrentSection);
-
-        //點航導
-        // navItems.forEach(link => {
-        //     link.addEventListener('click', event => {
-        //         event.preventDefault();
-        //         const targetId = link.getAttribute('href');
-        //         changeNavItem(targetId)
-
-        //     });
-        // });
-
-        // document.querySelector(`.banner-content-wrap button`).addEventListener('click',event => {
-        //     changeNavItem('#contact')
-        // })
-
-        // function changeNavItem(link) {
-        //     const targetElement = document.querySelector(link);
-
-        //     targetElement.scrollIntoView({
-        //         behavior: 'smooth',
-        //         block: 'start',
-        //     });
-
-        //     //  當前頁籤 current
-        //     navItems.forEach(item => item.classList.remove('current'));
-        //     link.classList.add('current');
-        // }
-        // const nav = document.querySelector('.nav-wrap');
-        // const burger = document.querySelector('.burger');
-
-        
-        // burger.addEventListener('click', () => {
-        //     if (nav) {
-        //         nav.classList.toggle('fixed'); 
-        //     }
-        // });
-
-        // 寬度變化監聽
-        // window.addEventListener('resize', () => {
-        //     if (window.innerWidth > 768 && nav) {
-        //         nav.classList.remove('fixed');
-        //     }
-        // });
     
     </script>
 </body>
