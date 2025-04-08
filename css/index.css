@@ -45,7 +45,7 @@ body {
     min-width: 320px;
     min-height: 100vh;
     width: 100%;
-    overflow: scroll;
+    /* overflow: scroll; */
     font-family: 'Source Han Sans TC', "Microsoft JhengHei", arial, sans-serif;
 }
 
@@ -859,5 +859,10 @@ main section *.blue {
     }
     header nav ul a {
         margin-bottom: 20px;
+    }
+}
+@media only screen and (max-width: 400px) {
+    body {
+        overflow: scroll;
     }
 }
