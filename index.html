@@ -22,7 +22,6 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>    
-    <script src="https://www.youtube.com/iframe_api"></script>
 </head>
 <body>
     <header>
@@ -288,6 +287,7 @@
             </div>
         </section>
     </main>
+    <script src="https://www.youtube.com/iframe_api"></script>
     <script type="module">
 
     document.addEventListener("DOMContentLoaded", () => {
@@ -383,13 +383,12 @@
         // createAnimation(".cases-wrap .img-wrap", { opacity: 0, x: 100 }, { opacity: 1, x: 0, duration: 0.8 });
         createAnimation("#cases .advertising-content-wrap", { opacity: 0, x: 100 }, { opacity: 1, x: 0, duration: 0.8, ease: "power2.out" });
         // createAnimation(".contact-us-main .title img", { opacity: 0, x: 100 }, { opacity: 1, x: 0, duration: 0.8, ease: "power2.out" });
-        createAnimation(".contact-us-main .title p", { opacity: 0, x: 100 }, { opacity: 1, x: 0, duration: 0.8, ease: "power2.out" });
         createAnimation(".contact-us-main .form > h3", { opacity: 0, x: 100 }, { opacity: 1, x: 0, duration: 0.8, ease: "power2.out" });
 
         let player;
         let player_2;
-
-        window.onYouTubeIframeAPIReady = function() {
+        //呼叫YT API
+        function initializePlayers() {
             player = new YT.Player('player', {
                 // height: '360',
                 // width: '640',
@@ -410,7 +409,8 @@
                     'playsinline': 1,
                 },
             });
-        };
+        }
+        initializePlayers();
 
         // 自訂義播放按鈕
         document.querySelector(".play-button").addEventListener("click", function() {
@@ -492,5 +492,6 @@
     .catch(error => console.error('無法加載 data.json:', error));
     
     </script>
+
 </body>
 </html>
