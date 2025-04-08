@@ -293,80 +293,9 @@
     document.addEventListener("DOMContentLoaded", () => {
             // GSAP 滾動動畫
         gsap.registerPlugin(ScrollTrigger);
-        //輪播
-        function initSwiper({ containerSelector, slideSelector, paginationSelector, nextBtnSelector, prevBtnSelector }) {
-            const slideItems = document.querySelectorAll(slideSelector);
-
-            const swiper = new Swiper(containerSelector, {
-                loop: slideItems.length > 1,
-                autoplay: {
-                    delay: 40000,
-                    disableOnInteraction: false,
-                },
-                pagination: {
-                    el: paginationSelector,
-                    clickable: true,
-                },
-                navigation: {
-                    nextEl: nextBtnSelector,
-                    prevEl: prevBtnSelector,
-                },
-            });
-
-            // 控制分頁與按鈕的顯示
-            if (slideItems.length <= 1) {
-                const pagination = document.querySelector(paginationSelector);
-                const nextButton = document.querySelector(nextBtnSelector);
-                const prevButton = document.querySelector(prevBtnSelector);
-
-                if (pagination) pagination.style.display = 'none';
-                if (nextButton) nextButton.style.display = 'none';
-                if (prevButton) prevButton.style.display = 'none';
-            }
-
-            return swiper;
-        }
-
-        // 建立輪播
-        const swiper1 = initSwiper({
-            containerSelector: '#advertising .advertising-resources-main',
-            slideSelector: '#advertising .advertising-resources-main .swiper-slide',
-            paginationSelector: '.swiper-pagination-kv',
-            nextBtnSelector: '.advertising-swiper-button-next',
-            prevBtnSelector: '.advertising-swiper-button-prev',
-        });
-
-        const swiper2 = initSwiper({
-            containerSelector: '#offline-advertising .advertising-resources-main',
-            slideSelector: '#offline-advertising .advertising-resources-main .swiper-slide',
-            paginationSelector: '.swiper-pagination-offline',
-            nextBtnSelector: '.offline-swiper-button-next',
-            prevBtnSelector: '.offline-swiper-button-prev',
-        });
-
-        const swiper3 = initSwiper({
-            containerSelector: '.cases-main',
-            slideSelector: '.cases-main .swiper-slide',
-            paginationSelector: '.swiper-pagination-cases',
-            nextBtnSelector: '.cases-swiper-button-next',
-            prevBtnSelector: '.cases-swiper-button-prev',
-        });
-
-        function createAnimation(selector, fromProps, toProps) {
-            gsap.fromTo(selector, fromProps, {
-                ...toProps,
-                scrollTrigger: {
-                    trigger: selector,
-                    start: "top 80%",
-                    end: "top 50%",
-                    toggleActions: "play none play none",
-                },
-            });
-        }
-        setTimeout(() => {
-            createAnimation(".banner-wrap .banner-content-wrap h1", { opacity: 0, x: 100 }, { opacity: 1, x: 0, duration: 0.8, ease: "power2.out" });
-            createAnimation(".banner-wrap .banner-content-wrap h2", { opacity: 0, x: 100 }, { opacity: 1, x: 0, duration: 0.8, ease: "power2.out" });
-        }, 300); // 
+        
+        createAnimation(".banner-wrap .banner-content-wrap h1", { opacity: 0, x: 100 }, { opacity: 1, x: 0, duration: 0.8, ease: "power2.out" });
+        createAnimation(".banner-wrap .banner-content-wrap h2", { opacity: 0, x: 100 }, { opacity: 1, x: 0, duration: 0.8, ease: "power2.out" });
         // createAnimation(".banner-wrap .banner-content-wrap img", { opacity: 0, x: 100 }, { opacity: 1, x: 0, duration: 0.8 });
         // createAnimation(".banner-wrap .banner-content-wrap h1", { opacity: 0, x: 100 }, { opacity: 1, x: 0, duration: 0.8, ease: "power2.out" });
         // createAnimation(".banner-wrap .banner-content-wrap h2", { opacity: 0, x: 100 }, { opacity: 1, x: 0, duration: 0.8, ease: "power2.out" });
@@ -438,6 +367,76 @@
             document.querySelector(".play-button-2").style.display = "none";
             document.querySelector(".cases-wrap .main .iframe-wrap .thumbnail-overlay").style.display = "none";
         });
+                //輪播
+                function initSwiper({ containerSelector, slideSelector, paginationSelector, nextBtnSelector, prevBtnSelector }) {
+            const slideItems = document.querySelectorAll(slideSelector);
+
+            const swiper = new Swiper(containerSelector, {
+                loop: slideItems.length > 1,
+                autoplay: {
+                    delay: 40000,
+                    disableOnInteraction: false,
+                },
+                pagination: {
+                    el: paginationSelector,
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: nextBtnSelector,
+                    prevEl: prevBtnSelector,
+                },
+            });
+
+            // 控制分頁與按鈕的顯示
+            if (slideItems.length <= 1) {
+                const pagination = document.querySelector(paginationSelector);
+                const nextButton = document.querySelector(nextBtnSelector);
+                const prevButton = document.querySelector(prevBtnSelector);
+
+                if (pagination) pagination.style.display = 'none';
+                if (nextButton) nextButton.style.display = 'none';
+                if (prevButton) prevButton.style.display = 'none';
+            }
+
+            return swiper;
+        }
+
+        // 建立輪播
+        const swiper1 = initSwiper({
+            containerSelector: '#advertising .advertising-resources-main',
+            slideSelector: '#advertising .advertising-resources-main .swiper-slide',
+            paginationSelector: '.swiper-pagination-kv',
+            nextBtnSelector: '.advertising-swiper-button-next',
+            prevBtnSelector: '.advertising-swiper-button-prev',
+        });
+
+        const swiper2 = initSwiper({
+            containerSelector: '#offline-advertising .advertising-resources-main',
+            slideSelector: '#offline-advertising .advertising-resources-main .swiper-slide',
+            paginationSelector: '.swiper-pagination-offline',
+            nextBtnSelector: '.offline-swiper-button-next',
+            prevBtnSelector: '.offline-swiper-button-prev',
+        });
+
+        const swiper3 = initSwiper({
+            containerSelector: '.cases-main',
+            slideSelector: '.cases-main .swiper-slide',
+            paginationSelector: '.swiper-pagination-cases',
+            nextBtnSelector: '.cases-swiper-button-next',
+            prevBtnSelector: '.cases-swiper-button-prev',
+        });
+
+        function createAnimation(selector, fromProps, toProps) {
+            gsap.fromTo(selector, fromProps, {
+                ...toProps,
+                scrollTrigger: {
+                    trigger: selector,
+                    start: "top 80%",
+                    end: "top 50%",
+                    toggleActions: "play none play none",
+                },
+            });
+        }
     });
     
     fetch('data.json')
