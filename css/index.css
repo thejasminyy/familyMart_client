@@ -319,6 +319,7 @@ main {
 .about-us-wrap .main .abou-us-content-wrap {
     margin-left: 46px;
     max-width: 533px;
+    width: 60%;
 }
 .about-us-wrap .main .iframe-wrap {
     /* width: calc(100% - 533px); */
@@ -404,6 +405,17 @@ main {
 .cases-wrap .main {
     width: 100%;
 }
+.cases-wrap .main { 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.cases-wrap .main .cases-main {
+    width: 100%;
+}
+.cases-wrap .main .cases-main .swiper-slide {
+    width: 100% !important;
+}
 .advertising-resources-main,
 .swiper-wrapper {
     width: 100%;
@@ -433,8 +445,7 @@ main {
     max-width: 100%;
     border-radius: 15px;
 }
-.advertising-resources-main .advertising-content-wrap,
-.cases-wrap .advertising-content-wrap {
+.advertising-resources-main .advertising-content-wrap {
     /* width: 717px; */
     width: 619px;
     /* flex: 1; */
@@ -445,6 +456,8 @@ main {
 .cases-wrap .advertising-content-wrap {
     /* min-width: 600px; */
     max-width: 533px;
+    margin-left: 46px;
+    width: 60%;
 }
 .advertising-resources-main .advertising-content-wrap .content-title-wrap,
 .cases-wrap .advertising-content-wrap .content-title-wrap {
@@ -831,7 +844,8 @@ main section *.blue {
         /* box-shadow: 0px 2px 3px 4px rgba(183, 207, 223, 0.25); */
     }
     .contact-us-main .form .btn-wrap button {
-        font-size: calc(18 / 768* 100vw);
+        /* font-size: calc(18 / 768* 100vw); */
+        font-size: 16px;
     }
     .contact-us-main .form section textarea {
         color: #8A8A8A;
