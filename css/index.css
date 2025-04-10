@@ -797,7 +797,8 @@ main section *.blue {
         margin-bottom: 15px;
     }
     .cases-wrap .advertising-content-wrap {
-        width: 100%;
+        width: 106%;
+        /* width: 100%; */
         margin-left: 0;
         margin-top: 25px;
         display: flex;
