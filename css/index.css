@@ -711,6 +711,7 @@ main section *.blue {
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        width: 100%;
     }
     .about-us-wrap .main .abou-us-content-wrap h3 {
         /* font-size: calc(24 / 768* 100vw); */
@@ -894,6 +895,9 @@ main section *.blue {
     }
     header nav ul a {
         margin-bottom: 20px;
+    }
+    .br-control {
+        display: inline-block;
     }
 }
 @media only screen and (max-width: 400px) {
