@@ -515,6 +515,9 @@ main {
 .cases-wrap .advertising-content-wrap .content-title-wrap {
     color: #000;
 }
+.content-title-wrap br {
+    display: none;
+}
 .seo {
     position: absolute;
     width: 1px;
@@ -768,6 +771,9 @@ main section *.blue {
         font-size: 16px;
         /* font-size: calc(13 / 768* 100vw); */
         text-align: center;
+    }
+    .content-title-wrap br {
+        display: block;
     }
     .cases-wrap .advertising-content-wrap .content-title-wrap {
         font-size: 21px;
