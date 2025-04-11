@@ -96,7 +96,7 @@
                     </div>
                     <div>
                         <h3 class="green">多元的廣告渠道</h3>
-                        <p>整合線上與線下場域，滿足品牌多樣化行銷目標</p>
+                        <p>整合線上與線下場域，<br/>滿足品牌多樣化行銷目標</p>
                     </div>
                 </div>
             </div>
@@ -441,12 +441,37 @@
         document.getElementById('form').addEventListener('submit', (e) => {
             e.preventDefault();
 
+            let hasError = false;
+            let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // email 認證
+
+            forms.data.forEach(field => {
+                const input = document.getElementById(field.id);
+                const value = input.value.trim();
+
+                // 檢查是否為空
+                if (!value) {
+                    alert(`請填寫「${field.label}」`);
+                    hasError = true;
+                    input.focus();
+                    return;
+                }
+
+                // email欄位認證
+                if (field.id === 'email' && !emailPattern.test(value)) {
+                    alert('請輸入正確的電子郵件格式（例如：example@domain.com）');
+                    hasError = true;
+                    input.focus();
+                    return;
+                }
+            });
+
+            if (hasError) return;
+
             const formData = new FormData();
             forms.data.forEach(field => {
                 formData.append(field.name, document.getElementById(field.id).value);
             });
 
-            // 發送資料到 Google 表單
             fetch(forms.src, {
                 method: 'POST',
                 body: formData,

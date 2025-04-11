@@ -241,7 +241,8 @@ main {
   opacity: 1;
   transform: translateX(0);
 }
-.banner-wrap .banner-content-wrap h2 br {
+.banner-wrap .banner-content-wrap h2 br,
+.about-us-wrap .main .abou-us-content-wrap p br {
     display: none;
 }
 .banner-wrap .banner-content-wrap img {
@@ -677,7 +678,8 @@ main section *.blue {
     .banner-wrap .banner-content-wrap h2 span {
         display: none;
     }
-    .banner-wrap .banner-content-wrap h2 br {
+    .banner-wrap .banner-content-wrap h2 br,
+    .about-us-wrap .main .abou-us-content-wrap p br {
         display: block;
     }
     .about-us-wrap .title h2,
@@ -730,7 +732,7 @@ main section *.blue {
         margin-bottom: calc(31 / 768* 100vw);
     }
     .about-us-wrap .main .abou-us-content-wrap > div {
-        width: 70%;
+        width: 85%;
         text-align: center;
     }
     .advertising-resources-wrap {
@@ -797,8 +799,7 @@ main section *.blue {
         margin-bottom: 15px;
     }
     .cases-wrap .advertising-content-wrap {
-        width: 106%;
-        /* width: 100%; */
+        width: 100%;
         margin-left: 0;
         margin-top: 25px;
         display: flex;
