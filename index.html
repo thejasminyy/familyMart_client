@@ -21,41 +21,6 @@
     <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
-    <header>
-        <!-- <div class="logo-wrap">
-            <img src="./images/logo.png" alt="">
-        </div>
-        <nav class="nav-wrap">
-            <ul>
-                <a href="#home" class="current">
-                    <li>首頁</li>
-                </a>
-                <a href="#ADS">
-                    <li >FamilyADS是什麼</li>
-                </a>
-                <a href="#advertising">
-                    <li>廣告資源</li>
-                </a>
-                <a href="#client">
-                    <li >合作客戶</li>
-                </a>
-                <a href="#cases">
-                    <li>成功案例</li>
-                </a>
-                <a href="#contact">
-                    <li >聯絡我們</li>
-                </a>
-            </ul>
-        </nav>
-        <div class="burgerCircle mb">
-            <div class="burger" toggle="0">
-                <div class="line"></div>
-                <div class="line"></div>
-                <div class="line"></div>
-                <div class="line"></div>
-            </div>
-        </div> -->
-    </header>
     <main>
         <section class="banner-wrap" id="home">
             <div class="banner-bg">
@@ -334,14 +299,14 @@
             document.querySelector(".play-button-2").style.display = "none";
             document.querySelector(".cases-wrap .main .iframe-wrap .thumbnail-overlay").style.display = "none";
         });
-                //輪播
-                function initSwiper({ containerSelector, slideSelector, paginationSelector, nextBtnSelector, prevBtnSelector }) {
+        //輪播
+        function initSwiper({ containerSelector, slideSelector, paginationSelector, nextBtnSelector, prevBtnSelector,delayNum }) {
             const slideItems = document.querySelectorAll(slideSelector);
 
             const swiper = new Swiper(containerSelector, {
                 loop: slideItems.length > 1,
                 autoplay: {
-                    delay: 40000,
+                    delay: delayNum,
                     disableOnInteraction: false,
                 },
                 pagination: {
@@ -375,6 +340,7 @@
             paginationSelector: '.swiper-pagination-kv',
             nextBtnSelector: '.advertising-swiper-button-next',
             prevBtnSelector: '.advertising-swiper-button-prev',
+            delayNum: 3000,
         });
 
         const swiper2 = initSwiper({
@@ -383,6 +349,7 @@
             paginationSelector: '.swiper-pagination-offline',
             nextBtnSelector: '.offline-swiper-button-next',
             prevBtnSelector: '.offline-swiper-button-prev',
+            delayNum: 3000,
         });
 
         const swiper3 = initSwiper({
@@ -391,6 +358,7 @@
             paginationSelector: '.swiper-pagination-cases',
             nextBtnSelector: '.cases-swiper-button-next',
             prevBtnSelector: '.cases-swiper-button-prev',
+            delayNum: 40000,
         });
 
         function createAnimation(selector, fromProps, toProps) {
