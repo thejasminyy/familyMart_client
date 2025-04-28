@@ -228,13 +228,14 @@
         </section>
     </main>
     <script src="https://www.youtube.com/iframe_api"></script>
+    <script src="./js/formsData.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>    
     <script type="module">
 
     document.addEventListener("DOMContentLoaded", () => {
-            // GSAP 滾動動畫
+        // GSAP 滾動動畫
         gsap.registerPlugin(ScrollTrigger);
         const h1 = document.querySelector(".banner-wrap .banner-content-wrap h1");
         const h2 = document.querySelector(".banner-wrap .banner-content-wrap h2");
@@ -374,87 +375,82 @@
         }
     });
     
-    fetch('data.json')
-    .then(response => response.json())
-    .then(forms => {
-        const formFields = document.getElementById('form-fields');
+    const formFields = document.getElementById('form-fields');
 
-        // 動態產生表單
+    // 動態產生表單
+    forms.data.forEach(field => {
+        if (field.type === 'textarea') {
+            const textarea = document.createElement('textarea');
+            textarea.name = field.name;
+            textarea.id = field.id;
+            textarea.rows = 5;
+            textarea.cols = 33;
+            textarea.placeholder = field.label;
+            textarea.required = true;
+            formFields.appendChild(textarea);
+        } else {
+            const label = document.createElement('label');
+            label.innerHTML = `${field.label}`;
+
+            const input = document.createElement('input');
+            input.type = field.type;
+            input.name = field.name;
+            input.id = field.id;
+            input.required = true;
+            
+            label.appendChild(input);
+            formFields.appendChild(label);
+        }
+    });
+
+    // 監聽發送表單事件
+    document.getElementById('form').addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        let hasError = false;
+        let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // email 認證
+
         forms.data.forEach(field => {
-            if (field.type === 'textarea') {
-                const textarea = document.createElement('textarea');
-                textarea.name = field.name;
-                textarea.id = field.id;
-                textarea.rows = 5;
-                textarea.cols = 33;
-                textarea.placeholder = field.label;
-                textarea.required = true;
-                formFields.appendChild(textarea);
-            } else {
-                const label = document.createElement('label');
-                label.innerHTML = `${field.label}`;
+            const input = document.getElementById(field.id);
+            const value = input.value.trim();
 
-                const input = document.createElement('input');
-                input.type = field.type;
-                input.name = field.name;
-                input.id = field.id;
-                input.required = true;
-                
-                label.appendChild(input);
-                formFields.appendChild(label);
+            // 檢查是否為空
+            if (!value) {
+                alert(`請填寫「${field.label}」`);
+                hasError = true;
+                input.focus();
+                return;
+            }
+
+            // email欄位認證
+            if (field.id === 'email' && !emailPattern.test(value)) {
+                alert('請輸入正確的電子郵件格式（例如：example@gamil.com）');
+                hasError = true;
+                input.focus();
+                return;
             }
         });
 
-        // 監聽發送表單事件
-        document.getElementById('form').addEventListener('submit', (e) => {
-            e.preventDefault();
+        if (hasError) return;
 
-            let hasError = false;
-            let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // email 認證
-
-            forms.data.forEach(field => {
-                const input = document.getElementById(field.id);
-                const value = input.value.trim();
-
-                // 檢查是否為空
-                if (!value) {
-                    alert(`請填寫「${field.label}」`);
-                    hasError = true;
-                    input.focus();
-                    return;
-                }
-
-                // email欄位認證
-                if (field.id === 'email' && !emailPattern.test(value)) {
-                    alert('請輸入正確的電子郵件格式（例如：example@gamil.com）');
-                    hasError = true;
-                    input.focus();
-                    return;
-                }
-            });
-
-            if (hasError) return;
-
-            const formData = new FormData();
-            forms.data.forEach(field => {
-                formData.append(field.name, document.getElementById(field.id).value);
-            });
-
-            fetch(forms.src, {
-                method: 'POST',
-                body: formData,
-                mode: 'no-cors'
-            })
-            .then(() => {
-                alert('我們已收到資料，將會盡速與您聯繫，謝謝。');
-                document.getElementById('form').reset();
-            })
-            .catch(() => {
-                alert('資料送出失敗，請稍後再試。');
-            });
+        const formData = new FormData();
+        forms.data.forEach(field => {
+            formData.append(field.name, document.getElementById(field.id).value);
         });
-    })
-    .catch(error => console.error('無法加載 data.json:', error));
+
+        fetch(forms.src, {
+            method: 'POST',
+            body: formData,
+            mode: 'no-cors'
+        })
+        .then(() => {
+            alert('我們已收到資料，將會盡速與您聯繫，謝謝。');
+            document.getElementById('form').reset();
+        })
+        .catch(() => {
+            alert('資料送出失敗，請稍後再試。');
+        });
+    });
     
     </script>
 

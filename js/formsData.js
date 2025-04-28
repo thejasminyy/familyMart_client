@@ -1,4 +1,4 @@
-{
+const forms = {
     "src": "https://docs.google.com/forms/u/0/d/e/1FAIpQLSdFfOX9mF3rk8Xoacx9C-dEFo0gVoaNOJ-AzInynHD6h96hcg/formResponse",
     "data": [
         { "label": "姓名", "type": "text", "name": "entry.1299645795", "id": "name" },
